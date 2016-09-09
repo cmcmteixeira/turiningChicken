@@ -1,0 +1,53 @@
+$login-height-xl: 700px;
+$login-width-xl: 400px;
+$login-image-size: 30%;
+$login-image-top: -160px;
+$login-plun-motto-color: #626162;
+$login-img-left: 100px;
+
+
+.plun-login{
+  height: 100vh;
+  width: 100vw;
+  .plun-paper{
+    width: $login-width-xl;
+    height: $login-height-xl;
+    left: calc(50% - #{$login-width-xl/2});
+    position: relative;
+    top: calc(50% - #{$login-height-xl/2});
+    text-align: center;
+    background: url(https://saffronsrule.files.wordpress.com/2014/04/saffrons-rule-ucla-frat-parties.jpg);
+    background-size: 100%;
+    background-position: 0 -4px;
+    background-repeat: no-repeat;
+
+  }
+  h3{
+    position: absolute;
+    top: calc(45px + #{$login-image-top});
+    left: calc(#{$login-image-size} + #{$login-img-left} + 10px);
+    color: $login-plun-motto-color;
+    font-weight: 600;
+  }
+  h4{
+    position: absolute;
+    top: calc(82px + #{$login-image-top});
+    left: calc(#{$login-image-size} + #{$login-img-left} + 10px);
+    color: $login-plun-motto-color;
+    font-weight: 600;
+  }
+  .facebook-button{
+    width: 60%;
+    left: 20%;
+    position: absolute;
+    bottom:30px;
+    color: white;
+  }
+  img{
+    position: absolute;
+    left: $login-img-left;
+    top:$login-image-top;
+    margin-top: 30px;
+    width: $login-image-size;
+  }
+}
