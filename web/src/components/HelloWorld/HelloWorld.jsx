@@ -3,8 +3,8 @@ import './HelloWorld.scss'
 import React from 'react'
 import {updateName,toUpper,toLower} from '../../actions/nameActions.js'
 import {connect} from 'react-redux'
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
+import {Paper, RaisedButton,FontIcon,me}from 'material-ui';
+
 
 class HelloWorld extends React.Component{
 
@@ -23,24 +23,20 @@ class HelloWorld extends React.Component{
     }
 
     render(){
-        var saudation;
-        if (this.props.name){
-            saudation = <div>{this.props.helloMessage} {this.props.name}</div>
-        }
+
         return (
             <div className="helloWorld">
-                <div className="login">
-                    <RaisedButton
-                        label="Github Link"
-                        href="https://github.com/callemall/material-ui"
-                        secondary={true}
-                        style={{}}
-                    />
-
+                <div className="plun-login">
+                    <Paper className="plun-paper" zDepth={1}>
+                        <me>PLUN</me>
+                        <RaisedButton
+                            className="facebook-button"
+                            label="Login with facebook"
+                            icon={<FontIcon className="muidocs-icon-custom-github" />}
+                        />
+                    </Paper>
                 </div>
-
             </div>
-
         )
     }
 }
@@ -49,7 +45,7 @@ HelloWorld.propTypes ={
     enableToLower : React.PropTypes.bool,
     helloMessage: React.PropTypes.string,
     question: React.PropTypes.string,
-    name :  React.PropTypes.string.isRequired
+    name :  React.PropTypes.string
 };
 HelloWorld.defaultProps ={
     enableToUpper : true,
