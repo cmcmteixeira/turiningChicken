@@ -20,6 +20,13 @@ import {Paper, RaisedButton,FontIcon,FloatingActionButton,Title,me}from 'materia
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Drawer from 'material-ui/Drawer';
 
+import {Tabs, Tab} from 'material-ui/Tabs';
+import SocialPeopleIcon from 'material-ui/svg-icons/social/people';
+import ToggleCheckBoxIcon from 'material-ui/svg-icons/toggle/check-box';
+import MapsAddLocationIcon from 'material-ui/svg-icons/maps/add-location';
+import ActionAccountBalanceWalletIcon from 'material-ui/svg-icons/action/account-balance-wallet';
+import ActionLightBulbOutlineIcon from 'material-ui/svg-icons/action/lightbulb-outline';
+
 import {List, ListItem} from 'material-ui/List';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
@@ -75,9 +82,16 @@ class PartyList extends React.Component {
         return (
             <div>
                 <AppBar
-                    title={<span style={{'fontSize':'18px'}}>Select party or create a new one!</span>}
-                    iconElementLeft={<IconButton>{}</IconButton>}
+                    title={<span style={{'fontSize':'14px','color':'#757575'}}>Select party or create a new one!</span>}
+                    iconElementLeft={<IconButton >{<ActionLightBulbOutlineIcon style="{{'color':'#757575!important'}}"/>}</IconButton>}
+                    className = "plun-homepage-message"
                     />
+                <Tabs>
+                    <Tab icon={<SocialPeopleIcon/>} />
+                    <Tab icon={<ToggleCheckBoxIcon/>} />
+                    <Tab icon={<MapsAddLocationIcon/>} />
+                    <Tab icon={<ActionAccountBalanceWalletIcon/>} />
+                </Tabs>
                 </div>
         )}
 }
@@ -143,10 +157,8 @@ class HomePage extends React.Component{
                     </div>
 
                     <div className="plun-homepage-body">
-                        <Paper className="plun-homepage-paper">
                         <PartyList/>
                         <AddParty/>
-                        </Paper>
                     </div>
                 </div>
             </div>

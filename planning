@@ -17,3 +17,12 @@
         - 
 ---------------------------------------------
 
+Páginas
+    - Login
+    - HomePage
+    - Party
+        - guests
+        - requirements/tasks
+        - location
+        - accounting
+        (- extra features)
