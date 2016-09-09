@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import HelloWorld from './components/HelloWorld/HelloWorld.jsx'
+import HomePage from './components/HomePage/HomePage.jsx'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -18,7 +19,10 @@ injectTapEventPlugin();
 ReactDom.render(
     <Provider store={store}>
         <MuiThemeProvider  muiTheme={getMuiTheme()}>
-            <HelloWorld/>
+            <div>
+                <HelloWorld/>
+                {/*<HomePage/>*/}
+            </div>
         </MuiThemeProvider>
     </Provider>,
     document.getElementById('main'))
