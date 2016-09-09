@@ -3,8 +3,8 @@ import './HelloWorld.scss'
 import React from 'react'
 import {updateName,toUpper,toLower} from '../../actions/nameActions.js'
 import {connect} from 'react-redux'
-
-
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 
 class HelloWorld extends React.Component{
 
@@ -29,11 +29,16 @@ class HelloWorld extends React.Component{
         }
         return (
             <div className="helloWorld">
-                <span href="">{this.props.question} </span><input type="text" value={this.props.name} onChange={this.onChange.bind(this)}/>
-                {saudation}
-                <br/>
-                {this.props.enableToUpper ? <button onClick={this.onToUpperCase.bind(this)}>To upper</button> : null}
-                {this.props.enableToLower ? <button onClick={this.onToLowerCase.bind(this)}>To lower</button> : null}
+                <div className="login">
+                    <RaisedButton
+                        label="Github Link"
+                        href="https://github.com/callemall/material-ui"
+                        secondary={true}
+                        style={{}}
+                    />
+
+                </div>
+
             </div>
 
         )

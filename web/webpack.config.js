@@ -27,7 +27,7 @@ module.exports = {
         loaders: [
             {test: /\.css$/, loader: 'style!css?importLoaders=1!postcss'},
             {test: /\.jsx?$/, loader: 'babel?presets[]=es2015&presets[]=react', exclude: /node_modules/},
-            {test: /\.scss$/,loaders: ["style", "css", "sass"]}
+            {test: /\.s?css$/,loaders: ["style", "css", "sass"]}
         ]
     },
     plugins : [
