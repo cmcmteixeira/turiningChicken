@@ -22,8 +22,7 @@ ReactDom.render(
     <Provider store={store}>
         <MuiThemeProvider  muiTheme={getMuiTheme()}>
             <div>
-                <LoginPage/>
-                {/*<HomePage/>*/}
+                <HomePage/>
             </div>
         </MuiThemeProvider>
     </Provider>,

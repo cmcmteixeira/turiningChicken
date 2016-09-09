@@ -4,11 +4,31 @@
   font-family: 'Roboto', sans-serif;
 }
 .plun-homepage-body{
-  padding: 0px 16px;
+  margin-left:256px;
+  padding: 0px 0px;
 }
 .plun-homepage-addparty{
   position:absolute;
   bottom:0;
   right:0;
   padding: 16px 16px;
+}
+.plun-homepage-paper{
+  //width:600px;
+  //min-height:80vh;
+  //margin-left:calc(50% - 300px);
+}
+.plun-homepage-navbar{
+  margin-left: 0;
+}
+.plun-homepage-drawer>div>div{
+margin-top: 56px;
+}
+.plun-homepage-upcoming{
+  background-color:#90a4ae!important;
+  margin-left:0
+}
+.plun-homepage-past{
+  background-color:#90a4ae!important;
+  margin-left:0
 }

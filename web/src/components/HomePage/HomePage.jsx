@@ -3,7 +3,12 @@ import './HomePage.scss'
 import React from 'react'
 
 import IconMenu from 'material-ui/IconMenu';
+import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import NavigationExpandMore from 'material-ui/svg-icons/navigation/expand-more'
+import NavigationExpandLess from 'material-ui/svg-icons/navigation/expand-less'
+import FlatButton from 'material-ui/FlatButton';
 import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu';
 import EditorModeEditIcon from 'material-ui/svg-icons/editor/mode-edit';
 import MenuItem from 'material-ui/MenuItem';
@@ -11,8 +16,9 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import {updateName,toUpper,toLower} from '../../actions/nameActions.js'
 import {connect} from 'react-redux'
-import {Paper, RaisedButton,FontIcon,FloatingActionButton,me}from 'material-ui';
+import {Paper, RaisedButton,FontIcon,FloatingActionButton,Title,me}from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import Drawer from 'material-ui/Drawer';
 
 import {List, ListItem} from 'material-ui/List';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
@@ -33,13 +39,14 @@ class NavBar extends React.Component {
         const toolbarTitleStyle = {
             'color':'white',
             padding: '0px 16px',
+            fontSize: '22px',
             position:'relative'
         };
 
         return (
             <Toolbar style={toolbarStyle}>
                 <ToolbarGroup firstChild={true}>
-                    <ToolbarTitle style={toolbarTitleStyle} text="Your parties"/>
+                    <ToolbarTitle style={toolbarTitleStyle} text="Plun"/>
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <FontIcon className="muidocs-icon-custom-sort" />
@@ -60,16 +67,18 @@ class NavBar extends React.Component {
 class PartyList extends React.Component {
 
     editParty(event){
-                console.log("entrou")
+                console.log("-")
             }
 
     render()
     {
         return (
-            <List>
-                <ListItem primaryText="Dummy party 1" secondaryText="21/12/2015" disabled leftIcon={<ActionGrade />} />
-                <ListItem primaryText="Dummy party 2" secondaryText="18/12/2016" leftIcon={<HardwareSpeaker />} rightIcon={<EditorModeEditIcon />}  onClick={this.editParty.bind(this)}/>
-            </List>
+            <div>
+                <AppBar
+                    title={<span style={{'fontSize':'18px'}}>Select party or create a new one!</span>}
+                    iconElementLeft={<IconButton>{}</IconButton>}
+                    />
+                </div>
         )}
 }
 
@@ -95,14 +104,49 @@ class AddParty extends React.Component {
 }
 
 class HomePage extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {open: true};
+    }
+
     render(){
         return (
             <div className="homePage">
                 <div className="plun-homepage">
-                        <NavBar/>
+                    <div className="plun-homepage-navbar">
+                        <NavBar />
+                        </div>
+
+                    <div className="plun-homepage-drawer">
+
+                        <Drawer open={this.state.open} >
+                            <AppBar
+                                title={<span style={{'fontSize':'18px'}}>Upcoming</span>}
+                                className="plun-homepage-upcoming"
+                                iconElementLeft={<IconButton>{<NavigationExpandMore />}</IconButton>}
+                                />
+                            <List>
+                                <ListItem primaryText="Dummy party 1" secondaryText="18/12/2016" leftIcon={<HardwareSpeaker />} rightIcon={<EditorModeEditIcon />}  />
+                            </List>
+                            <AppBar
+                                title={<span style={{'fontSize':'18px'}}>Past</span>}
+                                className="plun-homepage-past"
+                                iconElementLeft={<IconButton>{<NavigationExpandMore />}</IconButton>}
+                                />
+                        <List>
+                            <ListItem primaryText="Dummy party 2" secondaryText="21/12/2015" disabled leftIcon={<ActionGrade />} />
+                            <ListItem primaryText="Dummy party 3" secondaryText="21/02/2016" disabled leftIcon={<ActionGrade />} />
+                        </List>
+
+                        </Drawer>
+                    </div>
+
                     <div className="plun-homepage-body">
+                        <Paper className="plun-homepage-paper">
                         <PartyList/>
                         <AddParty/>
+                        </Paper>
                     </div>
                 </div>
             </div>
